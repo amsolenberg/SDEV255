@@ -12,6 +12,7 @@
     }
 
     function keyupHandler(event) {
+    //   console.log(event.key);  // Added to see the key events in the console.
       if (event.key == 'Enter') {
         let textBox = event.target;
         alert('Hello, ' + textBox.value + '!');

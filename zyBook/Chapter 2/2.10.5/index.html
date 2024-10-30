@@ -1,0 +1,25 @@
+<!-- Registering event handlers with addEventListener() -->
+
+<!DOCTYPE html>
+<html>
+  <title>Keyup Demo</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', loadedHandler);
+
+    function loadedHandler() {
+      let textBox = document.querySelector('#name');
+      textBox.addEventListener('keyup', keyupHandler);
+    }
+
+    function keyupHandler(event) {
+      if (event.key == 'Enter') {
+        let textBox = event.target;
+        alert('Hello, ' + textBox.value + '!');
+      }
+    }
+  </script>
+  <body>
+    <label for="id">Name?</label>
+    <input type="text" id="name" />
+  </body>
+</html>

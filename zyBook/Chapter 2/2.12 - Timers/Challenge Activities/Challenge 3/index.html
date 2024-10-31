@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let count = 0;
+                let counterElement = document.getElementById('counter');
+                counterElement.innerHTML = count;
+
+                /* Your solution goes here */
+                function increaseCount() {
+                    count++;
+                    counterElement.innerHTML = count;
+
+                    // if (count === 4) {clearInterval(counterInterval)}
+                    // or
+                    // if (count === 4) clearInterval(counterInterval);
+                    // or
+                    count === 4 ? clearInterval(counterInterval) : null;
+                }
+
+                let counterInterval = setInterval(increaseCount, 300);
+            });
+        </script>
+    </head>
+    <body>
+        Progress:
+        <p id="counter"></p>
+    </body>
+</html>

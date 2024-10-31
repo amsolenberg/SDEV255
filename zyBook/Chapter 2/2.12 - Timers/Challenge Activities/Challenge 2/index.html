@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const progressIndicator = document.getElementById('progress');
+                let progress;
+                let timerId;
+
+                let startButton = document.getElementById('startBtn');
+                startButton.addEventListener('click', startDownload);
+
+                function makeProgress() {
+                    progress += 20;
+                    progressIndicator.style.width = progress + 'px';
+
+                    if (progress >= 100) {
+                        clearInterval(timerId);
+                    }
+                }
+
+                function startDownload() {
+                    progress = 0;
+                    progressIndicator.style.width = progress;
+                    timerId =
+                        setInterval(makeProgress, 400);
+                        /* Your solution goes here */
+                }
+            });
+        </script>
+    </head>
+    <body>
+        Progress:
+        <div style="width: 100px; border: solid black 1px">
+            <div id="progress" style="width: 10px; height: 20px; background-color: green"></div>
+        </div>
+
+        <button id="startBtn">Start download</button>
+    </body>
+</html>

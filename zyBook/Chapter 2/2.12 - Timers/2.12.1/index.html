@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #special {
+            display: none;
+            border: solid red 1px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let timerId = setTimeout(showSpecial, 3000);
+
+            function showSpecial() {
+                let special = document.getElementById('special');
+                special.style.display = 'block';
+                setTimeout(hideSpecial, 10000);
+            }
+
+            function hideSpecial() {
+                let special = document.getElementById('special');
+                special.style.display = 'none';
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>Widgets-Are-Us</h1>
+    <div id="special">
+        <h1>Today Only!</h1>
+        <p>2 widgets for $10</p>
+    </div>
+    <p>Check out our widge range of widgets</p>
+    <p>and let us know how we can serve you!</p>
+</body>
+</html>

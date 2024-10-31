@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const helloElem = document.querySelector("#helloMessage");
+
+            helloElem.classList.add('special');
+            helloElem.classList.remove('last');
+        })
+    </script>
+</head>
+<body>
+    <p id="helloMessage" class="last message">
+        Hello, Olympic contestants!
+    </p>
+</body>
+</html>

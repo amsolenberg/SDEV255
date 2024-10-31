@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function addPixels(element, cssProperty, pixelAmount) {
+                return parseInt(element.style.getPropertyValue(cssProperty)) + pixelAmount + 'px';
+            }
+
+            const helloElem = document.querySelector("#helloMessage");
+            const newVal = addPixels(helloElem, "width", 50);
+            helloElem.style.setProperty('width', newVal);
+            
+        })
+    </script>
+</head>
+<body>
+    <p id="helloMessage" style="background-color: lightgray; width: 150px;">
+        Hello, Olympic contestants!
+    </p>
+</body>
+</html>

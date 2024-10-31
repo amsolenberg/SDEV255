@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const helloElem = document.querySelector('#helloMessage');
+
+            helloElem.style.setProperty('font-family', 'Courier');
+            helloElem.style.removeProperty('margin');
+        })
+    </script>
+</head>
+<body>
+    <p id="helloMessage" style="font-family: Arial; margin: 20px;">
+        Hello, Olympic contestants!
+    </p>
+</body>
+</html>

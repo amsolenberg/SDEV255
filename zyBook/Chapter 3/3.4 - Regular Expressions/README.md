@@ -1,4 +1,6 @@
-# Characters
+# Pattern Tables
+
+## Characters
 | Character   | Description                                                 | Example                                             |
 |-------------|-------------------------------------------------------------|-----------------------------------------------------|
 | `*`         | Match the preceding character 0 or more times.              | `/ab*c/` matches "abc", "abbbbc", and "ac".         |
@@ -12,7 +14,7 @@
 | `[a-z]`     | Match any one character in the range (here, a-z)            | `[a-z]` matches any lowercase letter                | 
 | `[0-9]`     | Match any one character in the range (here, 0-9)            | `[0-9]` matches any digit                           | 
 
-# Metacharacters
+## Metacharacters
 | Metacharacter | Description                                                        | Example                                             |
 |---------------|--------------------------------------------------------------------|-----------------------------------------------------|
 | `.`           | Match any single character except newline.                         | `/a.b/` matches "aZb" and "a b".                    |
@@ -23,7 +25,7 @@
 | `\s`          | Match any whitespace character (space, tab, form feed, line feed). | `/a\sb/` matches "a b" but not "a4b".               |
 | `\S`          | Match any non-whitespace character.                                | `/a\Sb/` matches "a!b" but not "a b".               |
 
-# Mode Modifiers
+## Mode Modifiers
 | Flag | Description                                                                                     | Example                                                                              |
 |------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | `i`  | Case insensitivity - Pattern matches upper or lowercase.                                        | `/aBc/i` matches "abc" and "AbC".                                                    |

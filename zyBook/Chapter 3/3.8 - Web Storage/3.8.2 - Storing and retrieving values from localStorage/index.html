@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let playerNameWidget = document.getElementById('playerName');
+                let difficultyLevelWidget = document.getElementById('diffLevel');
+
+                if (localStorage.getItem('playerName')) {
+                    playerNameWidget.value = localStorage.getItem('playerName');
+                    difficultyLevelWidget.value = localStorage.getItem('difficultyLevel');
+                }
+
+                document.getElementById('saveBtn').addEventListener('click', function () {
+                    localStorage.setItem('playerName', playerNameWidget.value);
+                    localStorage.setItem('difficultyLevel', difficultyLevelWidget.value);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Settings</h1>
+
+        <label
+            >Player Name:
+            <input type="text" id="playerName" value="Player 1" />
+        </label>
+        <br /><br />
+        <label
+            >Difficulty Level:
+            <input type="number" min="1" max="3" id="diffLevel" value="1" />
+        </label>
+        <br /><br />
+        <input type="button" value="Save" id="saveBtn" />
+    </body>
+</html>

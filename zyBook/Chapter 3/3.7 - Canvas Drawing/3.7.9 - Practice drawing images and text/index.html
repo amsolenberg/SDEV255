@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get canvas and 2D drawing context
+                let canvas = document.getElementById('myCanvas');
+                let context = canvas.getContext('2d');
+
+                // Constants for card dimensions
+                const cardWidth = 80;
+                const cardHeight = 100;
+
+                // Suits of the cards
+                const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+
+                // Array to hold suit images
+                let suitImages = [];
+                for (let i = 0; i < suits.length; i++) {
+                    suitImages[i] = document.getElementById(suits[i]); // Load suit images by ID
+                }
+
+                // Wait until all images are loaded, then draw the cards
+                window.addEventListener('load', drawCards);
+
+                // Main function to draw cards on the canvas
+                function drawCards() {
+                    // Create a diagonal gradient background
+                    let gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+                    gradient.addColorStop(0, 'blue');
+                    gradient.addColorStop(1, 'green');
+                    context.fillStyle = gradient;
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Generate random values
+                    function getRandom(max) {
+                        return Math.floor(Math.random() * max);
+                    }
+
+                    // Array of card ranks
+                    const ranks = ['A', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+                    // Draw 13 random cards
+                    for (let i = 0; i < 13; i++) {
+                        let suit = getRandom(4); // Random suit index (0-3)
+                        let rank = ranks[getRandom(14)]; // Random rank from the array
+                        // console.log(`Rank: ${rank} \nSuit: ${suit}`); // Debugging info
+                        drawCard(25 * i + 10, 10 * i + 10, rank, suit); // Draw the card
+                    }
+
+                    // Display "Let's play cards!" message
+                    letsPlay(canvas.width * 0.75, canvas.height * 0.1);
+                }
+
+                // Function to draw an individual card
+                function drawCard(x, y, rank, suit) {
+                    // Set font properties for card text
+                    context.font = 'bold 10pt Arial';
+                    context.textBaseline = 'top';
+                    context.textAlign = 'center';
+
+                    // Draw the card rectangle with shadow
+                    context.shadowBlur = 10;
+                    context.shadowOffsetX = 2;
+                    context.shadowOffsetY = 2;
+                    context.shadowColor = 'black';
+                    context.fillStyle = 'white';
+                    context.fillRect(x, y, cardWidth, cardHeight);
+
+                    // Disable shadows for card text and suit symbols
+                    context.shadowBlur = 0;
+                    context.shadowOffsetX = 0;
+                    context.shadowOffsetY = 0;
+
+                    // Set color for rank text based on suit
+                    context.fillStyle = suit === 2 || suit === 3 ? 'black' : 'red';
+
+                    // Positioning for ranks and small suit icons
+                    let upperRankX = x + cardWidth * 0.1;
+                    let upperRankY = y + cardHeight * 0.04;
+                    let lowerRankX = x + cardWidth * 0.85;
+                    let lowerRankY = y + cardHeight * 0.75;
+                    let smallSuitWidth = suitImages[suit].width * 0.25;
+                    let smallSuitHeight = suitImages[suit].height * 0.25;
+
+                    // Draw upper-left rank and small suit icon
+                    context.fillText(rank, upperRankX, upperRankY);
+                    context.drawImage(
+                        suitImages[suit],
+                        upperRankX - smallSuitWidth / 2,
+                        upperRankY + 11,
+                        smallSuitWidth,
+                        smallSuitHeight
+                    );
+
+                    // Draw lower-right rank and small suit icon
+                    context.fillText(rank, lowerRankX, lowerRankY);
+                    context.drawImage(
+                        suitImages[suit],
+                        lowerRankX - smallSuitWidth / 2,
+                        lowerRankY + 11,
+                        smallSuitWidth,
+                        smallSuitHeight
+                    );
+
+                    // Draw the main suit icon in the center of the card
+                    let cardX = x + (cardWidth - suitImages[suit].width) / 2;
+                    let cardY = y + (cardHeight - suitImages[suit].height) / 2;
+                    context.drawImage(suitImages[suit], cardX, cardY);
+                }
+
+                // Function to display the message "Let's play cards!" on the canvas
+                function letsPlay(x, y) {
+                    context.font = 'bold 14pt Consolas'; // Set font properties for message
+                    context.fillStyle = 'red'; // Set fill color for message
+                    context.fillText("Let's play cards!", x, y); // Draw message
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="410" height="270" style="border: 1px solid gray"></canvas>
+
+        <div style="display: none">
+            <img
+                src="https://resources.zybooks.com/WebProgramming/heartsv1.png"
+                id="hearts"
+                alt="Heart" />
+            <img
+                src="https://resources.zybooks.com/WebProgramming/clubsv1.png"
+                id="clubs"
+                alt="Clubs" />
+            <img
+                src="https://resources.zybooks.com/WebProgramming/diamondsv1.png"
+                id="diamonds"
+                alt="Diamonds" />
+            <img
+                src="https://resources.zybooks.com/WebProgramming/spadesv1.png"
+                id="spades"
+                alt="Spades" />
+        </div>
+    </body>
+</html>

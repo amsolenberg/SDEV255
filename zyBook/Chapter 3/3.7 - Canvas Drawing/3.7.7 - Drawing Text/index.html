@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+
+            // Red text
+            context.font = "italic 24pt Courier New";
+            context.fillStyle = "red";
+            context.fillText("Red text", 0, 30);
+
+            // Navy text
+            context.font = "bold 30pt Arial";
+            context.textAlign = "center";
+            context.strokeStyle = "navy";
+            context.lineWidth = 2;
+            context.strokeText("Navy text", canvas.width / 2, 70);
+
+            // Green text
+            context.font = "12pt Verdana";
+            context.textAlign = "right";
+            context.textBaseline = "top";
+            context.fillStyle = "green";
+            context.fillText("Green text", canvas.width, 80);
+        })
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="400", height="200"></canvas>
+</body>
+</html>

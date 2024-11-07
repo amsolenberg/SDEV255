@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the canvas element by its ID
+                let canvas = document.getElementById('myCanvas');
+
+                // Get the 2D rendering context for drawing on the canvas
+                let context = canvas.getContext('2d');
+
+                // Configure shadow settings for the bars
+                context.shadowBlur = 10; // Amount of blur for the shadow
+                context.shadowOffsetX = 3; // Horizontal offset of the shadow
+                context.shadowOffsetY = 3; // Vertical offset of the shadow
+                context.shadowColor = 'black'; // Color of the shadow
+                context.fillStyle = 'green';
+
+                // Obesity rates in Arkansas for each year
+                const arkansasRates = [
+                    25.2, 25.0, 26.4, 27.0, 28.1, 28.6, 30.1, 30.6, 30.9, 34.5, 34.6, 35.9,
+                ];
+
+                // Obesity rates in Colorado for each year
+                const coloradoRates = [
+                    16.0, 16.4, 16.9, 17.6, 18.4, 18.9, 19.1, 19.8, 20.7, 20.5, 21.3, 21.3,
+                ];
+
+                // Starting position for the left edge of the first bar
+                let leftEdge = 10;
+
+                // Fixed width for each bar
+                const barWidth = 20;
+
+                // Loop through the obesity rates for Arkansas and Colorado
+                for (let i = 0; i < arkansasRates.length; i++) {
+                    // Set the fill color for the current bar, varying blue intensity by index
+                    context.fillStyle = 'rgb(50, 100, ' + (150 + i * 10) + ')';
+
+                    // Calculate the height of the bar based on the Arkansas rate
+                    let barHeight = arkansasRates[i] * 5;
+
+                    // Draw the bar for Arkansas's obesity rate
+                    context.fillRect(leftEdge, canvas.height - barHeight, barWidth, barHeight);
+
+                    // TODO: Draw a diamond for Colorado's obesity rate
+                    context.beginPath(); // Start a new path for the diamond
+                    let middle = 200 - coloradoRates[i] * 5; // Vertical center position for the diamond
+
+                    // Define the four points of the diamond
+                    context.moveTo(leftEdge + barWidth / 2, middle - 10); // Top point
+                    context.lineTo(leftEdge, middle); // Left point
+                    context.lineTo(leftEdge + barWidth / 2, middle + 10); // Bottom point
+                    context.lineTo(leftEdge + barWidth, middle); // Right point (optional, uncomment if needed)
+
+                    context.closePath(); // Close the diamond shape
+
+                    // Set a new fill color for the diamond, varying red and blue by index
+                    context.fillStyle = 'rgb(' + (150 + i * 10) + ', 50, ' + (200 - i * 10) + ')';
+
+                    // Fill the diamond shape with the current fill color
+                    context.fill();
+
+                    // Move the left edge position for the next bar, leaving a 12-pixel gap between bars
+                    leftEdge += barWidth + 12;
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Arkansas & Colorado Obesity Rates</h2>
+        <canvas id="myCanvas" width="400" height="200" style="border: 1px solid gray"></canvas>
+    </body>
+</html>

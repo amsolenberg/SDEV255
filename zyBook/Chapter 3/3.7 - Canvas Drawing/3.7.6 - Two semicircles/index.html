@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+
+            context.beginPath();
+            context.arc(50, 50, 30, Math.PI, 0);
+            context.fillStyle = "aquamarine";
+            context.fill();
+
+            context.beginPath();
+            context.arc(150, 50, 30, Math.PI, 0, true);
+            context.stroke();
+        })
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="200" height="100" style="border: 2px solid black"></canvas>
+</body>
+</html>

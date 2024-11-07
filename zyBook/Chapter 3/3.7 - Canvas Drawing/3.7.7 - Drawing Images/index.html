@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener("load", draw);
+
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            let image = document.getElementById('dogImg');
+
+            function draw() {
+                // Draw the image 20 pixels from the left canvas edge, and 10
+                //  pixels from the top canvas edge. Image is 250 x 160.
+                context.drawImage(image, 20, 10);
+
+                // Draw image with width 70 and height 100
+                context.drawImage(image, 300, 20, 70, 100);
+            }
+        })
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <img src="https://resources.zybooks.com/WebProgramming/smallDogv1.jpg" alt="" id="dogImg" style="display: none;">
+</body>
+</html>

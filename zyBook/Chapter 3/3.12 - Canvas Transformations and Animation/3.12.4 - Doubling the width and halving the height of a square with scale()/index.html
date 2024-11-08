@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Figure 3.12.4</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.querySelector("#myCanvas");
+            let context = canvas.getContext("2d");
+
+            // Violet square
+            context.fillStyle = "violet";
+            context.fillRect(5, 20, 50, 50);
+
+            // Double x values, halve y values
+            context.scale(2, 0.5);
+
+            // Blue square appears wider and shorter
+            context.fillStyle = "blue";
+            context.fillRect(5, 20, 50, 50);
+        })
+    </script>
+</head>
+<body>
+<canvas height="80" id="myCanvas" style="border: 1px solid black" width="200"></canvas>
+</body>
+</html>

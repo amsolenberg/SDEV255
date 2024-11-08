@@ -1,0 +1,37 @@
+<!--
+
+The context method rotate() rotates the canvas clockwise about the current origin by the given radian angle.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotation</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.getElementById("myCanvas");
+            let context = canvas.getContext("2d");
+
+            context.fillStyle = "royalblue";
+            context.fillRect(100, 0, 100, 100);
+
+            // Rotate clockwise 18 degrees
+            context.rotate(Math.PI / 10);
+
+            context.fillStyle = "orange";
+            context.fillRect(100, 0, 100, 100);
+
+            // Rotate clockwise 18 degrees
+            context.rotate(Math.PI / 10);
+
+            context.fillStyle = "indianred";
+            context.fillRect(100, 0, 100, 100);
+        })
+    </script>
+</head>
+<body>
+<canvas height="200" id="myCanvas" style="border: 1px solid gray" width="250"></canvas>
+</body>
+</html>

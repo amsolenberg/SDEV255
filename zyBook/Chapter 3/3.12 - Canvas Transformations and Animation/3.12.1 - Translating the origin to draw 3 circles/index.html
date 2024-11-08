@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.12.1</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+
+            context.beginPath();
+            context.arc(50, 50, 30, 0, 2 * Math.PI);
+            context.fillStyle = "red";
+            context.fill();
+
+            context.beginPath();
+            context.translate(0, 80);
+            context.arc(50, 50, 30, 0, 2 * Math.PI);
+            context.fillStyle = "yellow";
+            context.fill();
+
+            context.beginPath();
+            context.translate(0, 80);
+            context.arc(50, 50, 30, 0, 2 * Math.PI);
+            context.fillStyle = "green";
+            context.fill();
+        })
+    </script>
+</head>
+<body>
+<canvas height="260" id="myCanvas" style="border: 2px solid black" width="100"></canvas>
+</body>
+</html>

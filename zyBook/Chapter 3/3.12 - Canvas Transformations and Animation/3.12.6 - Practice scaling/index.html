@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Scaling</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Redraw the sun when the x slider value changes
+            let xScaleElem = document.getElementById("xScale");
+            let xSlider = document.getElementById("xSlider");
+            xSlider.addEventListener("input", function () {
+                xScaleElem.innerHTML = xSlider.value;
+                drawSun();
+            });
+
+            // Redraw the sun when the y slider value changes
+            let yScaleElem = document.getElementById("yScale");
+            let ySlider = document.getElementById("ySlider");
+            ySlider.addEventListener("input", function () {
+                yScaleElem.innerHTML = ySlider.value;
+                drawSun();
+            });
+
+            let canvas = document.getElementById("myCanvas");
+            let context = canvas.getContext("2d");
+
+            drawSun();
+
+
+            function drawSun() {
+                // Clear context of previous image
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Save current context settings
+                context.save();
+
+                context.beginPath();
+
+                // Center the sun on the canvas
+                context.translate(130, 30);
+
+                // Scale sun based on slider values
+                context.translate(70, 70); // Move origin to center of sun
+                context.scale(xSlider.value, ySlider.value);
+                context.translate(-70, -70); // Move origin back to upper-left corner
+
+                // Draw sunbeams (4 rotated squares)
+                for (let i = 0; i < 4; i++) {
+                    context.translate(70, 70);
+                    context.rotate(Math.PI / 8);
+                    context.translate(-70, -70);
+
+                    context.fillStyle = "orange";
+                    context.fillRect(20, 20, 100, 100);
+                }
+
+                // Draw interior circle
+                context.arc(70, 70, 50, 0, 2 * Math.PI);
+                context.fillStyle = "yellow";
+                context.fill();
+
+                // Restore previously saved settings
+                context.restore();
+            }
+
+        })
+    </script>
+</head>
+<body>
+<div>
+    <label for="xSlider" style="width:100px; display:inline-block">
+        Scale x: <b id="xScale">1</b>
+    </label>
+    <input id="xSlider" max="3" min="0" step="0.1" type="range" value="1">
+</div>
+<div>
+    <label for="ySlider" style="width:100px; display:inline-block">
+        Scale y: <b id="yScale">1</b>
+    </label>
+    <input id="ySlider" max="3" min="0" step="0.1" type="range" value="1">
+</div>
+
+<canvas height="200" id="myCanvas" style="border: 1px solid gray" width="400"></canvas>
+</body>
+</html>

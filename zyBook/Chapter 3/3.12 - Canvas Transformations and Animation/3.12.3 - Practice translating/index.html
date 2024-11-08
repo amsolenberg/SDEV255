@@ -1,0 +1,29 @@
+<!--
+
+The webpage below displays a canvas with 5 squares that are all placed on top of each other. Add a call to
+translate() inside the for loop to draw the squares moving down and to the right as shown in the expected webpage.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Translating</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.getElementById("myCanvas");
+            let context = canvas.getContext("2d");
+
+            for (let i = 0; i < 5; i++) {
+                context.fillStyle = "rgb(100, 100, " + (130 + i * 30) + ")";
+                context.fillRect(5, 5, 100, 100);
+                context.translate(40, 40); // Surprised myself by guessing this number exactly right
+            }
+        })
+    </script>
+</head>
+<body>
+<canvas height="270" id="myCanvas" style="border: 1px solid gray" width="410"></canvas>
+</body>
+</html>

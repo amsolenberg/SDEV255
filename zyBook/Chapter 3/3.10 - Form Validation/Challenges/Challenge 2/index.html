@@ -1,0 +1,43 @@
+<!--
+
+Use the isNaN() function in validateForm() to verify the user age is a number.
+Display "Invalid user age" in the console log if the user age is not a number.
+Use the event method preventDefault() to avoid submitting the form when the input is invalid.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 2</title>
+    <script>
+        let form = document.getElementById('userForm');
+
+        function validateForm(event) {
+            let userAge = form.userAge.value;
+
+            if (isNaN(userAge)) {
+                console.log("Invalid user age");
+                event.preventDefault();
+            }
+
+        }
+
+        form.addEventListener('submit', validateForm);
+    </script>
+</head>
+<body>
+<form action="https://learn.zybooks.com" id="userForm" method="post">
+    <p>
+        <label for="userName">Username:</label>
+        <input id="userName" name="userName" type="text">
+    </p>
+    <p>
+        <label for="userAge">User age:</label>
+        <input id="userAge" name="userAge" type="text">
+    </p>
+    <input id="submit" type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!--
+
+In the validateForm() function, the `if` statement verifies the phone number is at least 8 characters long.
+Display "Phone number is invalid" in the console log if the phone number does not meet the requirement.
+Use the event method preventDefault() to avoid submitting the form when the input is invalid.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 1</title>
+    <script>
+        let form = document.getElementById("userForm");
+
+        function validateForm(event) {
+            let phoneNumber = form.phoneNumber.value;
+            let userName = form.userName.value;
+
+            if (phoneNumber.length < 8) {
+                console.log("Phone number is invalid");
+                event.preventDefault();
+            }
+        }
+
+        form.addEventListener("submit", validateForm);
+    </script>
+</head>
+<body>
+<form action="https://learn.zybooks.com" id="userForm" method="post">
+    <p>
+        <label for="userName">Username:</label>
+        <input id="userName" type="text">
+    </p>
+    <p>
+        <label for="phoneNumber">Phone number:</label>
+        <input id="phoneNumber" type="text">
+    </p>
+    <input id="submitBtn" type="submit" value="Submit">
+</form>
+</body>
+</html>

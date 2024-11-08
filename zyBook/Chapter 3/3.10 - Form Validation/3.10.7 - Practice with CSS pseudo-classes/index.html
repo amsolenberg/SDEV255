@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<form action="https://wp.zybooks.com/form-viewer.php" method="post" target="_self">
+    <label for="dob">Date of birth:</label>
+    <input id="dob" name="dob" required type="date">
+
+    <label for="creditCard">Credit card number:</label>
+    <input id="creditCard" maxlength="16" name="creditCard" pattern="^\d{16}$" required title="Exactly 16 digits"
+           type="text">
+
+    <label for="emailAddr">Email address:</label>
+    <input id="emailAddr" name="emailAddr" required type="email">
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

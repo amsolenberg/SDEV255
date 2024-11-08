@@ -1,0 +1,43 @@
+<!--
+
+Update the validateForm() function to verify the phone number is exactly 10 characters long and the username is less than 11 characters long.
+Display "Input is invalid" in the console log if the phone number or username do not meet the requirements.
+Use the event method preventDefault() to avoid submitting the form when the input is invalid.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 3</title>
+    <script>
+        let form = document.getElementById("userForm");
+
+        function validateForm(event) {
+            let phoneNumber = form.phoneNumber.value;
+            let userName = form.userName.value;
+
+            if (phoneNumber.length !== 10 || userName.length > 10) {
+                console.log("Input is invalid");
+                event.preventDefault();
+            }
+        }
+
+        form.addEventListener("submit", validateForm);
+    </script>
+</head>
+<body>
+<form action="https://learn.zybooks.com" id="userForm" method="post">
+    <p>
+        <label for="userName">Username:</label>
+        <input id="userName" name="userName" type="text">
+    </p>
+    <p>
+        <label for="phoneNumber">Phone number:</label>
+        <input id="phoneNumber" name="phoneNumber" type="text">
+    </p>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

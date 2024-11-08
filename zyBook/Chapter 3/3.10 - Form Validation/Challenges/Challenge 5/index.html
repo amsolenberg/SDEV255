@@ -1,0 +1,27 @@
+<!--
+
+Use HTML validation attributes to ensure the entered age is between 18 and 65, inclusive, and the username is 20
+characters or fewer.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 5</title>
+</head>
+<body>
+<form>
+    <p>
+        <label for="userAge">User Age:</label>
+        <input id="userAge" max="65" min="18" name="userAge" type="number">
+    </p>
+    <p>
+        <label for="userName">Username:</label>
+        <input id="userName" maxlength="20" name="userName" type="text">
+    </p>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "oreo",
+    "type": "cookie",
+    "flavors": [
+      "chocolate",
+      "vanilla"
+    ],
+    "favorite": false,
+    "created": 1912
+  },
+  {
+    "name": "snickers",
+    "type": "candy bar",
+    "flavors": [
+      "chocolate",
+      "peanuts",
+      "caramel",
+      "nougat"
+    ],
+    "favorite": true,
+    "created": 1930
+  },
+  {
+    "name": "malt",
+    "type": "frozen dairy",
+    "flavors": [
+      "vanilla",
+      "chocolate",
+      "strawberry"
+    ],
+    "favorite": false,
+    "created": 1922
+  }
+]

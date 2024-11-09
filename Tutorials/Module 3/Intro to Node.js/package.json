@@ -1,0 +1,17 @@
+{
+  "name": "intro-to-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amsolenberg/SDEV255.git"
+  },
+  "private": true,
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

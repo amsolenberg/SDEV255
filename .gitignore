@@ -1,5 +1,6 @@
-Discussions/*
-JS/*
-Resources/*
-Lecture Videos/*
-.idea/*
+/Discussions/
+/JS/
+/Resources/
+/Lecture Videos/
+/.sync-exclude.lst
+/.idea/

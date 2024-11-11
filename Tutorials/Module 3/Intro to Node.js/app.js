@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Blog = require('./models/blog');
 
 // express app
 const app = express();
@@ -8,6 +9,7 @@ const app = express();
 // connect to mongodb
 const dbURI =
     'mongodb+srv://netninja:B9Vqtr6VrCQgy2PJJTgvHmPxe6mHRC@nodetuts.qqcpo.mongodb.net/?retryWrites=true&w=majority&appName=nodetuts';
+    // mongodb://
 mongoose
     .connect(dbURI)
     .then((result) => app.listen(3000))
@@ -15,6 +17,23 @@ mongoose
 
 // register view engine
 app.set('view engine', 'ejs');
+
+// mongoose and mongo sandbox routes
+app.get('/add-blog', (req, res) => {
+    const blog = new Blog({
+        title: 'new blog 2',
+        snippet: 'about my new blog',
+        body: 'more about my new blog',
+    });
+
+    blog.save()
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
 
 // middleware & static files
 app.use(express.static('public'));

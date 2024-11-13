@@ -13,3 +13,15 @@
 | 5XX         | General form for server error codes                                                  |
 | 500         | Internal server error. Ex: Server-side code crashed.                                 |
 | 503         | Service unavailable. Ex: Webpage is temporarily unavailable due to site maintenance. |
+
+## Comparison of Promise object's `then()` and `catch()` scenarios
+| Code                                     | Scenario                                                        | Function(s) called                  | Uncaught exception?  |
+|------------------------------------------|-----------------------------------------------------------------|-------------------------------------|----------------------|
+| `promise1.then(okFunc, failFunc);`       | `promise1` fulfilled, `okFunc()` does NOT throw an exception    | `okFunc()` only                     | No                   |
+|                                          | `promise1` fulfilled, `okFunc()` throws an exception            | `okFunc()` only                     | Yes                  |
+|                                          | `promise1` rejected, `failFunc()` does NOT throw an exception   | `failFunc()` only                   | No                   |
+|                                          | `promise1` rejected, `failFunc()` throws an exception           | `failFunc()` only                   | Yes                  |
+| `promise1.then(okFunc).catch(failFunc);` | `promise1` fulfilled, `okFunc()` does NOT throw an exception    | `okFunc()` only                     | No                   |
+|                                          | `promise1` fulfilled, `okFunc()` throws an exception            | `okFunc()` first, then `failFunc()` | No                   |
+|                                          | `promise1` rejected, `failFunc()` does NOT throw an exception   | `failFunc()` only                   | No                   |
+|                                          | `promise1` rejected, `failFunc()` throws an exception           | `failFunc()` only                   | Yes                  |

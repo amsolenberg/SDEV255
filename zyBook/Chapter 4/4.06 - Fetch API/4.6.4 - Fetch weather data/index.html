@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>4.6.4 | Weather Forecast</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                async function getForecast() {
+                    let zipcode = document.getElementById('zip').value;
+                    let url = 'https://wp.zybooks.com/weather.php?zip=' + zipcode;
+                    let response = await fetch(url);
+
+                    // Verify response code is 2XX
+                    if (response.ok) {
+                        let weather = await response.json();
+
+                        let html = '';
+                        if (weather.success) {
+                            html += `<h1>Forecast</h1>`;
+                            html += `<ol>`;
+                            for (let day of weather.forecast) {
+                                html += `<li>${day.desc}: high is ${day.high}, low is ${day.low}</li>`;
+                            }
+                            html += '</ol>';
+                        } else {
+                            html = `<h1>Error: ${weather.error}</h1>`;
+                        }
+
+                        // Show forecast
+                        document.getElementById('forecast').innerHTML = html;
+                    } else {
+                        alert('HTTP error: ' + response.status);
+                    }
+                }
+
+                document.getElementById('search').addEventListener('click', getForecast);
+            });
+        </script>
+    </head>
+    <body>
+        <p>
+            <label for="zip">ZIP code:</label>
+            <input type="text" maxlength="5" id="zip" />
+            <button id="search">Search</button>
+        </p>
+        <div id="forecast"></div>
+    </body>
+</html>

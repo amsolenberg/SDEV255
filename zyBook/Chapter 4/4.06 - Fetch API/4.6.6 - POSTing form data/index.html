@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>4.6.6</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let form = document.querySelector('form');
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    let response = await fetch('login', {
+                        method: 'POST',
+                        body: new FormData(form),
+                    });
+
+                    let result = await response.text();
+                    alert(result);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <p>
+                <label for="uname">Username:</label>
+                <input type="text" id="uname" name="uname" />
+            </p>
+            <p>
+                <label for="pword">Password:</label>
+                <input type="password" id="pword" name="pword" />
+            </p>
+            <p>
+                <input type="submit" value="Login" />
+            </p>
+        </form>
+    </body>
+</html>

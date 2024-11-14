@@ -2,7 +2,7 @@ getWeather(90210);
 
 function getWeather(zip) {
     let endpoint = "https://api.openweathermap.org/data/2.5/weather";
-    let apiKey = "3119ca3a5263e21ffcf08066b5d1b05b";
+    let apiKey = "APIKey";
     let queryString = "zip=" + zip + "&units=imperial&appid=" + apiKey;
     let url = endpoint + "?" + queryString;
 

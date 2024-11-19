@@ -2,10 +2,14 @@
 
 <template>
    <div>
-      <h4>Messages</h4>
-      <ul v-for="message in messages">
-         <li>{{ message }}</li>
-      </ul>
+      <h4 class="text-h4">Messages</h4>
+      <v-list>
+         <v-list-item v-for="(message, index) in messages" :key="index" @click="">
+            <v-list-item-content>
+               <v-list-item-title>{{ message }}</v-list-item-title>
+            </v-list-item-content>
+         </v-list-item>
+      </v-list>
    </div>
 </template>
 
@@ -13,7 +17,7 @@
    export default {
       data() {
          return {
-            messages: ['hello', 'hi', 'it\'s working'],
+            messages: ['hello', 'hi', "it's working"],
          };
       },
    };

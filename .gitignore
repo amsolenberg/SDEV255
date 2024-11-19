@@ -5,3 +5,4 @@
 /.sync-exclude.lst
 /.idea/
 */*/node_modules/
+Labs/*/*/*.pdf

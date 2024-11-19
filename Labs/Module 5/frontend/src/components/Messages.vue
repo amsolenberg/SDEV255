@@ -14,11 +14,15 @@
 </template>
 
 <script>
+   import axios from 'axios';
    export default {
       data() {
          return {
             messages: ['hello', 'hi', "it's working"],
          };
+      },
+      async created() {
+         this.messages = (await axios.get('http://localhost:3000/messages')).data;
       },
    };
 </script>

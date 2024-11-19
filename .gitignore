@@ -2,7 +2,5 @@
 /JS/
 /Resources/
 /Lecture Videos/
-/.sync-exclude.lst
-/.idea/
-*/*/node_modules/
-Labs/*/*/*.pdf
+node_modules/
+*.pdf

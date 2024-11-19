@@ -1,14 +1,14 @@
 <template>
-  <MessagesList />
+  <Messages />
 </template>
 
 <script>
-import MessagesList from './components/MessagesList.vue'
+import Messages from './components/Messages.vue'
 
 export default {
   name: 'App',
   components: {
-    MessagesList
+    Messages
   }
 }
 </script>

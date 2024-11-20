@@ -1,14 +1,23 @@
 <template>
-  <Messages />
+  <v-app>
+    <v-main>
+      <Messages/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Messages from './components/Messages.vue'
+import Messages from './components/Messages';
 
 export default {
   name: 'App',
+
   components: {
-    Messages
-  }
-}
+    Messages,
+  },
+
+  data: () => ({
+    //
+  }),
+};
 </script>

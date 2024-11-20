@@ -28,13 +28,27 @@
    import axios from 'axios';
 
    export default {
+      emits: ['new-message'],
       data: () => ({
          messageBody: '',
       }),
       methods: {
          submit() {
-            axios.post('http://localhost:3000/messages', { message: this.messageBody });
+            const newMessage = this.messageBody;
+            axios
+               .post('http://localhost:3000/messages', { message: newMessage })
+               .then(() => {
+                  this.$emit('new-message', newMessage);
+                  this.messageBody = '';
+               })
+               .catch((err) => console.error('Post failed', err));
          },
       },
+      //   methods: {
+      //      submit() {
+      //         axios.post('http://localhost:3000/messages', { message: this.messageBody });
+      //         this.$root.$emit('newMessage', this.messageBody);
+      //      },
+      //   },
    };
 </script>

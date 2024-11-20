@@ -1,12 +1,7 @@
 <template>
-   <v-app>
-      <v-toolbar app> </v-toolbar>
-      <v-content>
-         <NewMessage />
-         <br>
-         <Messages />
-      </v-content>
-   </v-app>
+   <NewMessage />
+   <br />
+   <Messages />
 </template>
 
 <script>

@@ -8,7 +8,7 @@
          </v-toolbar>
          <v-row justify="center">
             <v-col class="pa-5" cols="12">
-               <v-form v-model="valid">
+               <v-form>
                   <v-row>
                      <v-col cols="12">
                         <v-text-field v-model="messageBody" label="Message" required></v-text-field>
@@ -26,18 +26,14 @@
 
 <script>
    import axios from 'axios';
+
    export default {
-      data() {
-         return {
-            messageBody: '123',
-         };
-      },
-      async created() {
-         this.messages = (await axios.get('http://localhost:3000/messages')).data;
-      },
+      data: () => ({
+         messageBody: '',
+      }),
       methods: {
          submit() {
-            console.log(this.messageBody);
+            axios.post('http://localhost:3000/messages', { message: this.messageBody });
          },
       },
    };

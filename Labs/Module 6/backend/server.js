@@ -18,7 +18,7 @@ app.post('/messages', (req, res) => {
    console.log(msg);
    messages.push(msg.message);
    res.json(msg);
-   console.log(messages)
+   console.log(messages);
 });
 
 app.listen(port, () => console.log('app running'));

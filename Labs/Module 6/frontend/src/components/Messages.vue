@@ -22,10 +22,14 @@
   export default {
     data() {
       return {
-        messages: ['hello', 'hi', "it's working"],
+        messages: [],
       };
     },
     async created() {
+      this.$root.$on('newMessage', (message) => {
+        this.messages.push(message);
+      });
+
       this.messages = (await axios.get('http://localhost:3000/messages')).data;
     },
   };

@@ -1,5 +1,10 @@
 <template>
   <v-app>
+    <v-app-bar app>
+      <v-btn text>Messages</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn text>Login</v-btn>
+    </v-app-bar>>
     <v-main>
       <br>
       <NewMessage />

@@ -6,24 +6,21 @@
       <v-btn text>Login</v-btn>
     </v-app-bar>>
     <v-main>
-      <br>
-      <NewMessage />
-      <br>
-      <Messages />
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-  import Messages from './components/Messages';
-  import NewMessage from './components/NewMessage';
+  // import Messages from './components/Messages';
+  // import NewMessage from './components/NewMessage';
 
   export default {
     name: 'App',
 
     components: {
-      Messages,
-      NewMessage,
+      // Messages,
+      // NewMessage,
     },
 
     data: () => ({

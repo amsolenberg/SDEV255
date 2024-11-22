@@ -4,9 +4,11 @@
       <v-btn text to="/">Messages</v-btn>
       <v-btn text to="/NewMessage">New Message</v-btn>
       <v-spacer></v-spacer>
-      <v-btn text to="/Register">Register</v-btn>
-      <v-btn text>Login</v-btn>
+      <v-btn text v-if="!$store.state.token" to="/Register">Register</v-btn>
+      <v-btn text v-if="!$store.state.token" to="/Login">Login</v-btn>
+      <v-btn text v-if="$store.state.token" @click="$store.commit('logout')">Logout</v-btn> 
     </v-app-bar>>
+
     <v-main>
       <router-view />
     </v-main>
@@ -14,19 +16,11 @@
 </template>
 
 <script>
-  // import Messages from './components/Messages';
-  // import NewMessage from './components/NewMessage';
-
   export default {
     name: 'App',
 
-    components: {
-      // Messages,
-      // NewMessage,
-    },
+    components: {},
 
-    data: () => ({
-      //
-    }),
+    data: () => ({}),
   };
 </script>

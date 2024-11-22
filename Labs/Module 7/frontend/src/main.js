@@ -7,6 +7,7 @@ import Messages from './components/Messages.vue';
 import NewMessage from './components/NewMessage.vue';
 import Message from './components/Message.vue';
 import Register from './components/Register.vue';
+import Login from './components/Login.vue';
 
 Vue.use(vueRouter);
 
@@ -26,6 +27,10 @@ const routes = [
   {
     path: '/Register',
     component: Register,
+  },
+  {
+    path: '/Login',
+    component: Login,
   },
 ];
 

@@ -1,0 +1,63 @@
+[
+    {
+        "_id": 100,
+        "make": "Ford",
+        "model": "Fusion",
+        "year": 2014,
+        "options": [
+            "engine start",
+            "moon roof"
+        ],
+        "price": 13500
+    },
+    {
+        "_id": 200,
+        "make": "Honda",
+        "model": "Accord",
+        "year": 2013,
+        "options": [
+            "spoiler",
+            "alloy wheels",
+            "sunroof"
+        ],
+        "price": 16900
+    },
+    {
+        "_id": 300,
+        "make": "Dodge",
+        "model": "Avenger",
+        "year": 2012,
+        "options": [
+            "leather seats"
+        ],
+        "price": 10800
+    },
+    {
+        "_id": 400,
+        "make": "Toyota",
+        "model": "Corolla",
+        "year": 2013,
+        "options": [
+            "antitheft"
+        ],
+        "price": 13400
+    }
+]
+
+db.autos.find({})
+- All documents
+
+db.autos.find({ year: { $gte: 2013 } })
+- _id 100, 200, 400
+
+db.autos.findOne({ year: { $gte: 2013 } })
+- _id 100
+
+db.autos.findOne({ year: { $gte: 2016 } })
+- null
+
+db.autos.find({ $and: [ {price: { $lte: 15000 } }, { options: { $in: ["sunroof", "antitheft", "moon roof"] } } ] })
+- _id 100, 400
+
+db.autos.find({ $or: [ {"make":"Honda"}, {"year": {$ne: 2013} } ] })
+- _id 100, 200, 300

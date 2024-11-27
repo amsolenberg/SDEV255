@@ -1,0 +1,40 @@
+[
+    {
+        "_id": 100,
+        "make": "Ford",
+        "model": "Fusion",
+        "year": 2014,
+        "options": [
+            "engine start",
+            "moon roof"
+        ],
+        "price": 13500
+    },
+    {
+        "_id": 200,
+        "make": "Honda",
+        "model": "Accord",
+        "year": 2013,
+        "options": [
+            "spoiler",
+            "alloy wheels",
+            "sunroof"
+        ],
+        "price": 16900
+    }
+]
+
+db.autos.updateOne({ price: { $gt: 10000} }, { $set: { year: 2000, options [] }})
+- Only auto with _id 100 has year set to 2000 and options removed
+
+db.autos.updateMany({ price: { $gt: 10000} }, { $set: { year: 2000, options [] }})
+- Both autos have year set to 2000 and options removed
+
+db.autos.updateOne({ price: { $gt: 10000} }, { $set: { sold: true }})
+- Auto with _id 100 has a new field "sold" set to true
+
+db.autos.updateOne({ _id: 100 }, { $currentDate: { soldDate: true }})
+Auto with _id 100 has new field "soldDate" set to the current date and time
+
+db.autos.updateOne({ _id: 100 }, { $inc: { price: -500, year: 2 }})
+Auto with _id 100 has price reduced by 500 and year increased by 2

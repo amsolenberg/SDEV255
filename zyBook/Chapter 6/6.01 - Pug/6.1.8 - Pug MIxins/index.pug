@@ -1,0 +1,52 @@
+mixin greet(name)
+    if name 
+        p Greetings, #{name}!
+        block
+    else
+        p Hello, Anonymous!
+
+mixin displayReverse(students)
+    - let n = students.length - 1
+    ul
+        while n >= 0
+            li= students[n].name + " - " + students[n].grade
+            - n--
+
+mixin displayGrades(students)
+    ul
+        each Student, index in students
+            li= student.name + " - " + student.grade
+
+    const students = [
+        { name: "Anna", grade: "B" },
+        { name: "Gary", grade: "A" },
+        { name: "Maria", grade: "C" }
+    ]
+
++greet(students[0].name)
+//- <p>Greetings, Anna!</p>
+
++greet
+//- <p>Hello, Anonymous!</p>
+
++greet(students[1].name)
+    p How are you?
+//- <p>Greetings, Gary!</p>
+//- <p>How are you?</p>
+
++displayGrades(students)
+//- <ul>
+//-     <li>Anna - B</li>
+//-     <li>Gray - A</li>
+//-     <li>Maria - C</li>
+//- </ul>
+
+displayReverse(students)
+//- <ul>
+//-     <li>Maria - C</li>
+//-     <li>Gary - A</li>
+//-     <li>Anna - B</li>
+//- </ul>
+
++displayGrades([])
+//- <ul></ul>

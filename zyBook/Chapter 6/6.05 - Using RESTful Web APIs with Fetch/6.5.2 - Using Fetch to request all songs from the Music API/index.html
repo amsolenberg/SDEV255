@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.5.2</title>
+    <script>
+        addEventListener("DOMContentLoaded", async function() {
+            const response = await fetch('/api/songs');
+            const songs = await response.json();
+
+            let html = "";
+            for (let song of songs) {
+                html += `<li>${song.title} - ${song.artist}</li>`;
+            }
+
+            document.querySelector('ul').innerHTML = html;
+        })
+    </script>
+  </head>
+  <body>
+    <h1>Songs</h1>
+    <ul>
+      <!-- <li>Uptown Funk - Bruno Mars</li> -->
+      <!-- <li>Hello - Adele</li> -->
+      <!-- <li>Royals - Lorde</li> -->
+    </ul>
+  </body>
+</html>
